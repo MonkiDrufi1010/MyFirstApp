@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  MyFirstApp
 //
-//  Created by 謝榮駿 on 2023/4/13.
+//
 //
 
 import UIKit
@@ -19,6 +19,11 @@ class ViewController: UIViewController {
                    "Fabulous? That's You!",
                    "How Are You Today",
                    "How mach" ]
+    
+    var imageNumber = 0
+    var messageNumber = 0
+    var totalNumberOfImage = 9
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -26,9 +31,22 @@ class ViewController: UIViewController {
 
     @IBAction func showBtn(_ sender: UIButton) {
         
-        myLabel.text = message[Int.random(in: 0...message.count - 1)]
-        
-        myImageView.image = UIImage(named: "image\(Int.random(in: 0...9))")
+        var newMessage = Int.random(in: 0...message.count-1)
+        while messageNumber == newMessage {
+            newMessage = Int.random(in: 0...message.count-1)
+            print("messageNumber: \(messageNumber)")
+//            myLabel.text = message[newMessage]
+        }
+        messageNumber = newMessage
+     
+        print("這裡當嗎")
+        myLabel.text = message[messageNumber]
+        var newImageView = Int.random(in: 0...totalNumberOfImage)
+        while imageNumber == newImageView {
+            newImageView = Int.random(in: 0...totalNumberOfImage)
+        }
+        imageNumber = newImageView
+        myImageView.image = UIImage(named: "image\(newImageView)")
         
     }
     
