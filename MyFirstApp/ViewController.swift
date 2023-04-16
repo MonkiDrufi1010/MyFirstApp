@@ -36,7 +36,12 @@ class ViewController: UIViewController {
             newMessage = Int.random(in: 0...message.count-1)
             print("messageNumber: \(messageNumber)")
 //            myLabel.text = message[newMessage]
-        }
+        
+        
+        
+        
+        
+        
         messageNumber = newMessage
      
         print("這裡當嗎")
