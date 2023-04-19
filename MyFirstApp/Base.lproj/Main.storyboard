@@ -27,7 +27,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image0" translatesAutoresizingMaskIntoConstraints="NO" id="mYR-xz-tfi">
-                                <rect key="frame" x="10" y="284" width="373" height="534"/>
+                                <rect key="frame" x="10" y="319" width="373" height="499"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZlQ-f7-Imf">
                                 <rect key="frame" x="10" y="209" width="373" height="60"/>
@@ -41,30 +41,40 @@
                                     <action selector="showBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="g1O-Fg-dYm"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dil-QW-RZB">
+                                <rect key="frame" x="172" y="274" width="51" height="30"/>
+                                <connections>
+                                    <action selector="playSoundToggle:" destination="BYZ-38-t0r" eventType="valueChanged" id="Cns-yi-LVb"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="D5S-QY-tgm" secondAttribute="trailing" constant="10" id="16S-oM-0hB"/>
                             <constraint firstItem="ZlQ-f7-Imf" firstAttribute="top" secondItem="D5S-QY-tgm" secondAttribute="bottom" constant="35" id="67G-U3-ytX"/>
+                            <constraint firstItem="Dil-QW-RZB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6yh-JJ-gJz"/>
                             <constraint firstItem="mYR-xz-tfi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="8oU-bp-YgV"/>
-                            <constraint firstItem="mYR-xz-tfi" firstAttribute="top" secondItem="ZlQ-f7-Imf" secondAttribute="bottom" constant="15" id="MZK-We-p9o"/>
+                            <constraint firstItem="mYR-xz-tfi" firstAttribute="top" secondItem="ZlQ-f7-Imf" secondAttribute="bottom" constant="50" id="MZK-We-p9o"/>
                             <constraint firstItem="D5S-QY-tgm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="OqW-sa-9Zu"/>
                             <constraint firstItem="D5S-QY-tgm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="X1W-Ut-Yoe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZlQ-f7-Imf" secondAttribute="trailing" constant="10" id="ccP-pm-EU2"/>
+                            <constraint firstItem="Dil-QW-RZB" firstAttribute="top" secondItem="ZlQ-f7-Imf" secondAttribute="bottom" constant="5" id="fTl-L0-TVP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mYR-xz-tfi" secondAttribute="bottom" id="l63-Qz-0WK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mYR-xz-tfi" secondAttribute="trailing" constant="10" id="lsQ-2i-zt0"/>
                             <constraint firstItem="ZlQ-f7-Imf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="mcV-pD-KO6"/>
+                            <constraint firstItem="mYR-xz-tfi" firstAttribute="top" secondItem="Dil-QW-RZB" secondAttribute="bottom" constant="15" id="ydy-BR-lCQ"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="myImageView" destination="mYR-xz-tfi" id="kW7-xj-sMJ"/>
                         <outlet property="myLabel" destination="D5S-QY-tgm" id="R3F-Ro-a24"/>
+                        <outlet property="playSoundSwitch" destination="Dil-QW-RZB" id="voB-4Y-fb0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="234" y="-414"/>
+            <point key="canvasLocation" x="-77" y="-443"/>
         </scene>
     </scenes>
     <resources>

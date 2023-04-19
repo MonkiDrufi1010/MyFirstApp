@@ -28,6 +28,8 @@ class ViewController: UIViewController {
     var totalNumberOfImage = 9
     var audioPlayer: AVAudioPlayer!
     
+    @IBOutlet weak var playSoundSwitch: UISwitch!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,42 +50,49 @@ class ViewController: UIViewController {
         
     }
     
+    func nonRepeatingRandom(orinigal: Int, uppperLimit: Int) -> Int {
+        var newNumber: Int
+        repeat {
+            newNumber = Int.random(in: 0...uppperLimit)
+        } while orinigal == newNumber
+        
+        return newNumber
+    }
+    
+    
     
     @IBAction func showBtn(_ sender: UIButton) {
         
-        var newMessage: Int
-       
-        repeat {
-            newMessage = Int.random(in: 0...message.count-1)
-            print("messageNumber: \(messageNumber)")
-            print("這裡當嗎")
-           
-        } while messageNumber == newMessage
-        messageNumber = newMessage
+        messageNumber = nonRepeatingRandom(orinigal: messageNumber, uppperLimit: message.count-1)
         myLabel.text = message[messageNumber]
       
        
-        var newImageView: Int
-        repeat {
-            newImageView = Int.random(in: 0...totalNumberOfImage)
-            
-        } while imageNumber == newImageView
-        imageNumber = newImageView
-        myImageView.image = UIImage(named: "image\(newImageView)")
+        imageNumber = nonRepeatingRandom(orinigal: imageNumber, uppperLimit: totalNumberOfImage)
+        myImageView.image = UIImage(named: "image\(imageNumber)")
         
-        var newSoundPlayer: Int
-        repeat {
-            newSoundPlayer = Int.random(in: 0...totalNumberSound)
-            
-        } while soundNumber == newSoundPlayer
+     
         
-        soundNumber = newSoundPlayer
-        playSound(num: soundNumber)
+        soundNumber = nonRepeatingRandom(orinigal: soundNumber, uppperLimit: totalNumberSound)
+      
+//        playSound(num: soundNumber)
         
-        
-        
+        if playSoundSwitch.isOn {
+            playSound(num: soundNumber)
+        }
+
        
     }
+  
+
+    
+    @IBAction func playSoundToggle(_ sender: UISwitch) {
+        if !sender.isOn && audioPlayer != nil{
+            audioPlayer.stop()
+            
+        }
+        
+    }
+    
     
 
     
