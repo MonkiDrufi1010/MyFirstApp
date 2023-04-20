@@ -30,9 +30,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var playSoundSwitch: UISwitch!
     
+    @IBOutlet weak var showBtnOutlet: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        audioPlayer.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -40,7 +42,11 @@ class ViewController: UIViewController {
         if let sound = NSDataAsset(name: "sound\(num)") {
             do {
                 try audioPlayer = AVAudioPlayer(data: sound.data)
+                audioPlayer.delegate = self
                 audioPlayer.play()
+                
+                showBtnOutlet.isEnabled = false
+                
             } catch {
                 print("Error: \(error.localizedDescription)")
             }
@@ -78,7 +84,10 @@ class ViewController: UIViewController {
         
         if playSoundSwitch.isOn {
             playSound(num: soundNumber)
+            
         }
+        
+        
 
        
     }
@@ -98,4 +107,10 @@ class ViewController: UIViewController {
     
     
 }
-
+// 因為當連續按btn 播放音效時,func playSound(num: Int) 這段會跑到 catch 這執行, 想解決這樣提
+//所以就加上這段 delegate , 和 isEanble   讓按鈕呈現灰色(false)無法按,等音效播完 才能在案 但還沒完全解決,日後再看
+extension ViewController: AVAudioPlayerDelegate {
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        showBtnOutlet.isEnabled = true
+    }
+}

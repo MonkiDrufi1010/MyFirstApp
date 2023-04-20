@@ -70,6 +70,7 @@
                         <outlet property="myImageView" destination="mYR-xz-tfi" id="kW7-xj-sMJ"/>
                         <outlet property="myLabel" destination="D5S-QY-tgm" id="R3F-Ro-a24"/>
                         <outlet property="playSoundSwitch" destination="Dil-QW-RZB" id="voB-4Y-fb0"/>
+                        <outlet property="showBtnOutlet" destination="ZlQ-f7-Imf" id="aQU-56-nPO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
